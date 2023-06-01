@@ -1,0 +1,8 @@
+*.pyc
+data/*
+models/*
+output/*
+logs/*
+src/eval_metrics/lib/*
+src/eval_metrics/cache/*
+Manifest.toml
