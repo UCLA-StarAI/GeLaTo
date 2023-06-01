@@ -1,6 +1,7 @@
 # GeLaTo
 
 
+# requirements
 ```
 conda create --name gelato python=3.8
 conda activate gelato
