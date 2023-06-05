@@ -2,10 +2,8 @@ from eval_metrics.bleu import Bleu
 from eval_metrics.cider import Cider
 from eval_metrics.spice import Spice
 
-# import evaluate
 import spacy
 import json
-# import sys
 import codecs
 import argparse
 
@@ -66,7 +64,7 @@ def evaluator(gts, res):
             eval[method] = score
             print("%s: %0.3f" % (method, score))
 
-# 
+
 def load_targets(dataset_file):
     with open(dataset_file, 'r') as fin:
         examples = json.load(fin)
@@ -108,13 +106,9 @@ for gts_line, res_line in zip(targets, results):
     sentence = res_line['sentence']
     sentence.replace('.', ' .')
     sentence.replace(',', ' ,')
-    res[key] = [sentence.rstrip('\n')]
-    # res[key] = [res_line['sentence'].rstrip('\n')]
+    res[key] = [sentence.rstrip('\n')]    
 
 evaluator(gts, res)
-
-# print("Evaluation from huggingface evaluate")
-
 
 from rouge_score import rouge_scorer
 predictions = [x['sentence'] for x in result]
@@ -125,7 +119,7 @@ scores = []
 for pred, ref in zip(predictions, references):
     rs = [scorer.score(pred, i)['rougeL'].fmeasure for i in ref]
     scores.append(sum(rs)/len(rs))
-    # scores.append(max(rs))
+    
 print('rougeL score')
 print(sum(scores) / len(scores))
 

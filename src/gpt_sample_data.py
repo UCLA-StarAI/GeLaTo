@@ -5,7 +5,7 @@ import torch
 from tqdm import tqdm
 from transformers import GPT2LMHeadModel
 
-device = 'cpu'
+device = 'cuda'
 
 def init():
     global device

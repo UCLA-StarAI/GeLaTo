@@ -91,7 +91,14 @@ def init():
     arg_parser.add_argument('--hmm_batch_size', default=256, type=int)
 
     arg_parser.add_argument('--seq2seq', default=0, type=int)
-    arg_parser.add_argument('--w', default=0.2, type=float) # weight for geometric mean, only effective with --seq2seq non-zero
+    # --seq2seq 0: unsupervised setting, use the unsupervised base model together with the 
+    #              HMM distilled from the unsupervised base model.
+    # --seq2seq 1: supervised setting 1, use the supervised base model together with the HMM
+    #              model distilled from the unsuperivised base model    
+    # --seq2seq 2: supervised setting 2, use supervised base model and the HMM distilled from
+    #              the supervised base model
+    arg_parser.add_argument('--w', default=0.2, type=float) 
+    # weight for geometric mean, only effective with --seq2seq non-zero
     arg_parser.add_argument('--hmm_only', action='store_true')
     arg_parser.add_argument('--gpt_only', action='store_true')    
 
@@ -244,7 +251,7 @@ def main():
         examples[example_idx]['sentences'] = sentences
 
         with open(args.output_file, 'w') as fout:
-            json.dump(examples, fout, indent=2)
+            json.dump(examples[:example_idx+1], fout, indent=2)
 
 
 if __name__ == '__main__':

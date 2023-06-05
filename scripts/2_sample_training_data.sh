@@ -13,11 +13,11 @@ do
 done
 
 # for supervised setting
-mkdir -p ./data/supervised/
-for idx in {1..40}
-do
-    python src/gpt_sample_data.py --device cuda --cuda_core $cuda_core \
-        --model_file ./models/gpt2-large_supervised/checkpoint-3 \
-        --sample_num 200000 --max_sample_length 32 --batch_size 1024 \
-        --output_file ./data/supervised/common-gen.train.${idx}
-done
+# mkdir -p ./data/supervised/
+# for idx in {1..40}
+# do
+#     python src/gpt_sample_data.py --device cuda --cuda_core $cuda_core \
+#         --model_file ./models/gpt2-large_supervised/checkpoint-3 \
+#         --sample_num 200000 --max_sample_length 32 --batch_size 1024 \
+#         --output_file ./data/supervised/common-gen.train.${idx}
+# done
