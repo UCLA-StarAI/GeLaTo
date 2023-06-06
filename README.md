@@ -30,14 +30,14 @@ python -m spacy download en_core_web_sm
 ```
 
 ## Models & Outputs
-We release our base models (GPT2-large finetuned on CommonGen) and distilled HMMs for reproducibility. We also release the generated outputs.
+We release our base models (GPT2-large finetuned on CommonGen) and distilled HMMs for reproducibility. In addition, we also release the generated examples.
 
 * models:
-* output:
+* generated examples:
 
 ## Running the GeLaTo Pipeline
 
-We use CommonGen (unsupervised setting) as an example to illustrate how to run the GeLaTo pipeline. See contents of the scripts for detailed command lines.
+We use CommonGen (unsupervised setting) as an example to illustrate how to run the GeLaTo pipeline. See contents of the scripts for full command lines.
 
 ### 1. finetuning the base model
 ```
