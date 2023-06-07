@@ -30,10 +30,11 @@ python -m spacy download en_core_web_sm
 ```
 
 ## Models & Outputs
-We release our base models (GPT2-large finetuned on CommonGen) and distilled HMMs for reproducibility. In addition, we also release the generated examples.
+We release checkpoints for the base models (GPT2-large finetuned on CommonGen) and the distilled HMMs for reproducibility. In addition, we also release the generated examples.
 
-* models:
-* generated examples:
+```
+https://drive.google.com/drive/folders/1cagRWGrGQ6HNes0z7Li2dHo2PfcuuZEl?usp=sharing
+```
 
 ## Running the GeLaTo Pipeline
 
@@ -45,7 +46,7 @@ bash scripts/1_finetune_gpt.sh
 ```
 
 
-### 2. distilling the HMMs
+### 2. training the HMMs
 To train an HMM that approximates the base model, there are three steps:
 
 * sampling training data from the base model 
