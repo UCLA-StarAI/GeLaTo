@@ -12,22 +12,22 @@ device = 'cuda'
 
 
 class DatasetFromFile(torch.utils.data.Dataset):
-  def __init__(self, dataset_file, seq2seq):
-    with open(dataset_file, 'r') as fin:
-        data = json.load(fin)
+    def __init__(self, dataset_file, seq2seq):
+        with open(dataset_file, 'r') as fin:
+            data = json.load(fin)
 
-    if seq2seq:
-        texts = ['<|endoftext|>' + ' ' + ' '.join(e['concepts']) + ' = ' + e['target'] + '<|endoftext|>' for e in data]
-    else:
-        texts = ['<|endoftext|>' + ' ' + e['target'] + '<|endoftext|>' for e in data]
+        if seq2seq:
+            texts = ['<|endoftext|>' + ' ' + ' '.join(e['concepts']) + ' = ' + e['target'] + '<|endoftext|>' for e in data]
+        else:
+            texts = ['<|endoftext|>' + ' ' + e['target'] + '<|endoftext|>' for e in data]
 
-    self.texts = texts
+        self.texts = texts
 
-  def __len__(self):
-        return len(self.texts)
+    def __len__(self):
+            return len(self.texts)
 
-  def __getitem__(self, index):
-        return self.texts[index]
+    def __getitem__(self, index):
+            return self.texts[index]
 
 
 def init():
